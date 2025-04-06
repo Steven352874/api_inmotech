@@ -28,6 +28,7 @@ const division = sequelize.define('division', {
     },
 }, {
     tableName: 'division',
+    timestamp: false
 });
 
 export default division;
