@@ -1,36 +1,34 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../database/index.js';
 
-const permitions = sequelize.define('permitions', {
-    Permitions_id:{
+const municipio = sequelize.define('municipio', {
+    Municipio_id: {
         type: DataTypes.INTEGER(11),
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
     },
-    Permitions_name:{
-        type: DataTypes.STRING(20),
+    Municipio_nombre: {
+        type: DataTypes.STRING(255), // Adjust length as needed
         allowNull: false,
         collate: 'utf8_general_ci',
-        unique: true
     },
-    Permitions_description:{
-        type: DataTypes.STRING(100),
+    Municipio_descripcion: {
+        type: DataTypes.TEXT,
         allowNull: true,
-        defaultValue: null,
         collate: 'utf8_general_ci',
     },
     createdAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
     },
     updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE
-    }
-},
-{
-    tableName: 'permitions'
+        type: DataTypes.DATE,
+    },
+}, {
+    tableName: 'municipio',
+    timestamp: false
 });
 
-export default permitions;
+export default municipio;
