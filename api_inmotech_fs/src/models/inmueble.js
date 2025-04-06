@@ -8,38 +8,41 @@ const inmueble = sequelize.define('inmueble', {
         autoIncrement: true,
         allowNull: false,
     },
-    Valor: {
-        type: DataTypes.DECIMAL(15, 2), // Adjust precision and scale as needed
+    Inmueble_matricula: {
+        type: DataTypes.STRING(255), // Ajusta la longitud según sea necesario
+        allowNull: false,
+        collate: 'utf8_general_ci',
+    },
+    Inmueble_direccion_FK: {
+        type: DataTypes.INTEGER(11),
         allowNull: false,
     },
-    Area: {
-        type: DataTypes.DECIMAL(10, 2), // Adjust precision and scale as needed
+    Inmueble_area: {
+        type: DataTypes.DECIMAL(10, 2), // Ajusta la precisión según sea necesario
         allowNull: false,
     },
-    Descripcion_General: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-        collate: 'utf8_general_ci',
+    Inmueble_valor_catastral: {
+        type: DataTypes.DECIMAL(10, 2), // Ajusta la precisión según sea necesario
+        allowNull: false,
     },
-    Antiguedad: {
+    Inmueble_tipo_inmueble_FK: {
         type: DataTypes.INTEGER(11),
-        allowNull: true,
+        allowNull: false,
     },
-    Motivo_VoA: {
-        type: DataTypes.STRING(255), // Adjust length as needed
-        allowNull: true,
-        collate: 'utf8_general_ci',
-    },
-    Situacion_inmueble: {
-        type: DataTypes.STRING(255), // Adjust length as needed
-        allowNull: true,
-        collate: 'utf8_general_ci',
-    },
-    Tipo_edificacion_FK: {
+    Inmueble_barrio_FK: {
         type: DataTypes.INTEGER(11),
-        allowNull: true,
+        allowNull: false,
     },
-    Otras_caracteristicas_FK: {
-        type: DataTypes.INTEGER(11),
-        allowNull: true,
+    createdAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
     },
+    updatedAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
+    },
+}, {
+    tableName: 'inmueble',
+});
+
+export default inmueble;
